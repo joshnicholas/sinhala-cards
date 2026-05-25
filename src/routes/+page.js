@@ -19,12 +19,12 @@ function parseCSV(text) {
 			}
 		}
 		fields.push(current.trim());
-		return { chapter: fields[0] ?? '', sinhala: fields[1] ?? '', english: fields[2] ?? '' };
+		return { chapter: '', sinhala: fields[0] ?? '', english: fields[1] ?? '' };
 	});
 }
 
 export async function load({ fetch }) {
-	const res = await fetch(`${base}/vocab.csv`);
+	const res = await fetch(`${base}/new_vocab.csv`);
 	const text = await res.text();
 	return { cards: parseCSV(text) };
 }

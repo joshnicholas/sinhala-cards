@@ -20,7 +20,7 @@
 
 	function initState(cards) {
 		const saved = loadState();
-		if (saved && saved.boxes) return saved;
+		if (saved && saved.boxes && saved.boxes.length === cards.length) return saved;
 		return {
 			boxes: cards.map(() => 0),   // all cards start in box 0
 			deleted: [],
